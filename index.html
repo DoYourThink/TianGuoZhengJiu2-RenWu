@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>天国：拯救 II · 人物关系图谱 | 两版入口</title>
+<meta name="description" content="《天国：拯救 2》中文人物关系图谱入口：DeepSeek V4.1 版（72 位人物 · 222 条关系 · 三种布局）与 GPT6 SOL 版（56 位人物 · 102 条关系 · 卡片式人物志），两款任选其一进入。">
+<meta name="theme-color" content="#0a0c11">
+<meta property="og:type" content="website">
+<meta property="og:title" content="天国：拯救 II · 人物关系图谱（两版入口）">
+<meta property="og:description" content="同一份提示词，两位 AI 抄写员：DeepSeek V4.1 版 72 位人物 · 222 条关系，GPT6 SOL 版 56 位人物 · 102 条关系，任选其一进入。">
+<meta property="og:locale" content="zh_CN">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 1.5 28 6v10c0 7-5 12.2-12 14.5C9 28.2 4 23 4 16V6z' fill='%230a0c11' stroke='%23d4af37' stroke-width='2'/><path d='M16 9.4l2.1 4.3 4.8.7-3.5 3.4.8 4.8-4.2-2.3-4.2 2.3.8-4.8-3.5-3.4 4.8-.7z' fill='%23d4af37'/></svg>">
+<style>
+/* ============================================================
+   天国拯救2 人物关系图谱 · 入口页
+   视觉方向：波希米亚泥金手抄本的「对开双联页」
+   —— 同一部编年史，两位抄写员各抄一份，读者自选其一
+   ============================================================ */
+:root{
+  --night:#0a0c11;
+  --night-2:#12161f;
+  --night-3:#171c27;
+  --vellum:#e8dcc0;
+  --text:#d7cfbe;
+  --text-dim:#9a927f;
+  --gold:#d4af37;
+  --gold-hi:#f3dfa2;
+  --gold-dim:rgba(212,175,55,.34);
+  --line:rgba(212,175,55,.18);
+  --blood:#d4675a;
+  --font-display:"STKaiti","KaiTi","楷体","Kaiti SC","Noto Serif SC","Source Han Serif SC",serif;
+  --font-serif:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",Georgia,serif;
+  --font-sans:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  --font-num:Georgia,"Times New Roman",serif;
+  --shadow:0 24px 60px rgba(0,0,0,.55);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%,rgba(58,73,96,.34),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 105%,rgba(120,42,38,.16),transparent 65%),
+    var(--night);
+  color:var(--text);
+  font-family:var(--font-serif);
+  font-size:16px;
+  line-height:1.8;
+}
+/* 纸张颗粒：极低透明度，只为去掉纯色的塑料感 */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+}
+.wrap{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,28px) 72px}
+
+/* ---------- 封面页（题头） ---------- */
+.masthead{padding:clamp(40px,7vw,76px) 0 8px;text-align:center}
+.eyebrow{
+  margin:0;font-family:var(--font-sans);font-size:11px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);
+}
+.masthead h1{
+  margin:16px 0 0;font-family:var(--font-display);font-weight:400;
+  font-size:clamp(29px,5.4vw,56px);line-height:1.16;letter-spacing:.05em;
+  color:var(--gold-hi);
+}
+/* 唯一的“金箔”手法：标题后半段压金，取手抄本贴金箔之意 */
+.masthead h1 .leaf{color:var(--gold-hi)}
+@supports (-webkit-background-clip:text) or (background-clip:text){
+  .masthead h1 .leaf{
+    background:linear-gradient(100deg,#b08a26 0%,#ffeec2 34%,#d4af37 58%,#b08a26 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+}
+.lede{margin:20px auto 0;max-width:34em;color:var(--vellum);font-size:clamp(15px,1.7vw,18px)}
+.lede small{display:block;margin-top:8px;font-family:var(--font-sans);font-size:12px;letter-spacing:.16em;color:var(--text-dim)}
+
+.ornament{display:flex;align-items:center;gap:14px;margin:34px 0 0;color:var(--gold-dim)}
+.ornament::before,.ornament::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
+.ornament span{font-size:12px;letter-spacing:.4em;color:var(--gold)}
+
+.intro{max-width:64ch;margin:38px auto 0;color:var(--text);font-size:15.5px}
+.intro p{margin:0}
+.intro strong{color:var(--vellum);font-weight:400;border-bottom:1px solid var(--gold-dim)}
+
+/* ---------- 对开双联页 ---------- */
+.diptych{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4.5vw,58px);margin-top:clamp(46px,7vw,72px)}
+/* 书脊：虚线装订线，只在双栏时出现 */
+.diptych::before{
+  content:"";position:absolute;left:50%;top:6px;bottom:6px;width:1px;transform:translateX(-.5px);
+  background:repeating-linear-gradient(to bottom,var(--gold-dim) 0 9px,transparent 9px 18px);
+}
+.copy{
+  position:relative;display:flex;flex-direction:column;gap:20px;
+  padding:clamp(20px,2.6vw,32px);
+  background:linear-gradient(180deg,rgba(23,28,39,.95),rgba(13,16,23,.95));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.copy::after{content:"";position:absolute;inset:7px;pointer-events:none;border:1px solid rgba(212,175,55,.07)}
+.copy--gold{--accent:var(--gold);--accent-hi:var(--gold-hi)}
+.copy--blood{--accent:#d4675a;--accent-hi:#e7a195}
+
+.attrib{display:flex;align-items:center;gap:12px}
+.seal{
+  flex:none;width:38px;height:38px;display:grid;place-items:center;
+  border:1px solid var(--accent);color:var(--accent-hi);font-size:15px;
+  background:linear-gradient(150deg,rgba(212,175,55,.14),transparent);
+  clip-path:polygon(50% 0,92% 14%,86% 74%,50% 100%,14% 74%,8% 14%);
+}
+.attrib p{margin:0;font-family:var(--font-sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.attrib p b{display:block;margin-top:5px;font-family:var(--font-display);font-size:19px;font-weight:400;letter-spacing:.06em;color:var(--vellum);text-transform:none}
+
+.copy h2{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(24px,2.9vw,32px);letter-spacing:.04em;color:#f6ecd2}
+.copy .tagline{margin:0;color:var(--text-dim);font-size:14.5px}
+
+.cover{margin:0;border:1px solid var(--gold-dim);background:#05070b;position:relative;overflow:hidden}
+.cover img{display:block;width:100%;height:100%;aspect-ratio:2/1;object-fit:cover;object-position:top center}
+.cover a{display:block;text-decoration:none}
+.cover figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:6px 10px;
+  font-family:var(--font-sans);font-size:11px;letter-spacing:.08em;color:#c9c1ad;
+  background:linear-gradient(180deg,transparent,rgba(5,7,11,.86));
+}
+
+.figures{display:flex;flex-wrap:wrap;margin:0;padding:0;list-style:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures li{flex:1 1 0;min-width:76px;padding:12px 8px;text-align:center;border-right:1px solid var(--line)}
+.figures li:last-child{border-right:0}
+.figures b{display:block;font-family:var(--font-num);font-weight:400;font-size:clamp(22px,2.4vw,28px);line-height:1.2;color:var(--accent-hi)}
+.figures span{font-family:var(--font-sans);font-size:11px;letter-spacing:.1em;color:var(--text-dim)}
+
+.features{margin:0;padding:0;list-style:none;font-size:14.5px}
+.features li{position:relative;padding:9px 0 9px 20px;border-bottom:1px dashed rgba(212,175,55,.14)}
+.features li:last-child{border-bottom:0}
+.features li::before{content:"✦";position:absolute;left:2px;top:9px;font-size:9px;color:var(--accent);opacity:.85}
+.features b{font-weight:400;color:var(--vellum)}
+
+.thumbs{display:flex;gap:10px;margin:0;padding:0;list-style:none}
+.thumbs li{flex:1;min-width:0}
+.thumbs a{display:block;border:1px solid var(--line);background:#05070b;text-decoration:none;transition:border-color .2s}
+.thumbs a:hover{border-color:var(--accent)}
+.thumbs img{display:block;width:100%;height:86px;object-fit:cover;object-position:top center;opacity:.86;transition:opacity .2s}
+.thumbs a:hover img{opacity:1}
+
+.cta{
+  align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;gap:11px;
+  padding:13px 24px;border:1px solid var(--accent);color:var(--accent-hi);
+  background:rgba(212,175,55,.06);font-family:var(--font-display);font-size:17px;letter-spacing:.08em;
+  text-decoration:none;transition:background .2s,color .2s,transform .2s;
+}
+.cta::after{content:"→";font-family:var(--font-sans);font-size:15px}
+.cta:hover{background:var(--accent);color:#0a0c11;transform:translateY(-1px)}
+
+/* ---------- 两版对照 ---------- */
+.compare{margin-top:clamp(56px,8vw,84px)}
+.section-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.section-head h2{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(22px,3vw,30px);letter-spacing:.05em;color:#f4e9d0}
+.section-head p{margin:0;font-family:var(--font-sans);font-size:12.5px;color:var(--text-dim)}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);background:rgba(18,22,31,.6)}
+table{width:100%;min-width:620px;border-collapse:collapse;font-size:14px}
+caption{caption-side:top;text-align:left;padding:14px 16px 12px;font-family:var(--font-sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line)}
+th,td{padding:12px 16px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(212,175,55,.12)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+thead th{font-family:var(--font-display);font-size:15px;font-weight:400;letter-spacing:.06em;color:var(--vellum);background:rgba(212,175,55,.05)}
+thead th:nth-child(2){color:var(--gold-hi)}
+thead th:nth-child(3){color:#e7a195}
+tbody th{font-family:var(--font-sans);font-size:12.5px;font-weight:400;letter-spacing:.04em;color:var(--text-dim);white-space:nowrap}
+tbody td{color:var(--text)}
+tbody tr:hover td,tbody tr:hover th{background:rgba(212,175,55,.035)}
+
+/* ---------- 阅读提示 / 页脚 ---------- */
+.notes{margin-top:clamp(48px,7vw,72px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,34px)}
+.note{border-top:1px solid var(--gold-dim);padding-top:16px}
+.note h3{margin:0 0 6px;font-family:var(--font-display);font-weight:400;font-size:18px;color:var(--vellum)}
+.note p{margin:0;font-size:14px;color:var(--text-dim)}
+
+.colophon{margin-top:clamp(48px,7vw,76px);padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--text-dim)}
+.colophon p{margin:0 0 8px}
+.colophon a{color:var(--gold-hi);text-decoration:none;border-bottom:1px solid var(--gold-dim)}
+.colophon a:hover{color:#fff8e6}
+
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+
+/* ---------- 入场：一次编排好的显现 ---------- */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .reveal{animation:rise .78s cubic-bezier(.2,.7,.3,1) both}
+  .masthead .reveal:nth-of-type(2){animation-delay:.07s}
+  .masthead .reveal:nth-of-type(3){animation-delay:.14s}
+  .copy--gold{animation-delay:.2s}
+  .copy--blood{animation-delay:.3s}
+}
+
+/* ---------- 窄屏：书脊收进栏间，双联改为上下叠放 ---------- */
+@media (max-width:860px){
+  .diptych{grid-template-columns:1fr}
+  .diptych::before{display:none}
+  .notes{grid-template-columns:1fr;gap:22px}
+  .thumbs img{height:74px}
+}
+@media (max-width:520px){
+  .figures li{min-width:50%;border-bottom:1px solid var(--line)}
+  .figures li:nth-child(2n){border-right:0}
+  .figures li:nth-last-child(-n+2){border-bottom:0}
+  .cta{align-self:stretch;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow reveal">Kingdom Come · Deliverance II</p>
+    <h1 class="reveal">天国：拯救 Ⅱ · <span class="leaf">人物关系图谱</span></h1>
+    <p class="lede reveal">同一份提示词，两位 AI 抄写员，各抄一份波希米亚的人物谱系。<small>1403 年 · 波希米亚 · 两版任选其一</small></p>
+  </header>
+
+  <div class="ornament" role="presentation"><span>✦</span></div>
+
+  <section class="intro" aria-label="缘起">
+    <p>玩《天国：拯救 2》的时候，各方人物一批批登场，加上对外国名字不太敏感，很容易分不清谁属于哪个派系，也理不清各方势力的恩怨情仇。网上又找不到合适的人物关系图谱，于是把同一份提示词分别交给 <strong>DeepSeek</strong> 和 <strong>GPT6 SOL</strong>，各生成一版，又改了几轮。两版各有千秋，放在这里方便对照查询。</p>
+  </section>
+
+  <main class="diptych">
+
+    <!-- 抄本甲 · DeepSeek -->
+    <article class="copy copy--gold reveal" aria-labelledby="ds-title">
+      <div class="attrib">
+        <span class="seal" aria-hidden="true">☾</span>
+        <p>抄本甲 · DeepSeek V4.1<b id="ds-title">全功能关系图谱</b></p>
+      </div>
+      <p class="tagline">三种布局、十二类关系、两套配色，把整张关系网交给你的战情室。</p>
+
+      <figure class="cover">
+        <a href="天国拯救2-人物关系图-DeepSeekV41.html" aria-label="打开 DeepSeek V4.1 版图谱">
+          <img src="assets/ds1.png" width="1912" height="914" loading="lazy" decoding="async"
+               alt="DeepSeek V4.1 版界面：深色夜幕主题下的波希米亚人物关系图谱，左侧为阵营与关系图例，右侧为画布">
+        </a>
+        <figcaption>夜幕主题 · 阵营布局 · 12 类关系图例常驻左栏</figcaption>
+      </figure>
+
+      <ul class="figures">
+        <li><b>72</b><span>人物</span></li>
+        <li><b>222</b><span>关系</span></li>
+        <li><b>8</b><span>阵营</span></li>
+        <li><b>30</b><span>主要人物</span></li>
+      </ul>
+
+      <ul class="features">
+        <li><b>阵营 / 环形 / 自由</b> 三种布局，阵营分簇自动成团</li>
+        <li><b>12 类关系</b>可逐类开关：血缘、婚姻、恋爱、盟友、效忠、敌对、仇杀……</li>
+        <li>人物分<b>核心 / 主要 / 次要</b>三级，切档后画面自动精简</li>
+        <li><b>夜幕（金）与羊皮纸（日间）</b>两套配色</li>
+        <li><b>关系链</b>：点两个人，自动高亮最短关系路径</li>
+        <li>剧透遮蔽、连线文字、PNG 导出与键盘快捷键</li>
+        <li>单文件离线可用：d3 与人物立绘全部内联在页面里</li>
+      </ul>
+
+      <ul class="thumbs">
+        <li><a href="assets/ds2.png" target="_blank" rel="noopener"><img src="assets/ds2.png" width="991" height="674" loading="lazy" decoding="async" alt="DeepSeek V4.1 版界面细节截图之一（点击看大图）"></a></li>
+        <li><a href="assets/ds3.png" target="_blank" rel="noopener"><img src="assets/ds3.png" width="888" height="621" loading="lazy" decoding="async" alt="DeepSeek V4.1 版界面细节截图之二（点击看大图）"></a></li>
+      </ul>
+
+      <a class="cta" href="天国拯救2-人物关系图-DeepSeekV41.html">打开 DeepSeek V4.1 版</a>
+    </article>
+
+    <!-- 抄本乙 · GPT6 SOL -->
+    <article class="copy copy--blood reveal" aria-labelledby="gpt-title">
+      <div class="attrib">
+        <span class="seal" aria-hidden="true">✦</span>
+        <p>抄本乙 · GPT6 SOL<b id="gpt-title">卡片式人物志</b></p>
+      </div>
+      <p class="tagline">左边一张关系网，右边一页人物档案，点到谁就读谁。</p>
+
+      <figure class="cover">
+        <a href="天国拯救2-人物关系图-GPT6.html" aria-label="打开 GPT6 SOL 版人物谱系">
+          <img src="assets/gpt1.png" width="1685" height="890" loading="lazy" decoding="async"
+               alt="GPT6 SOL 版界面：深色背景下的阵营关系图，人物以卡片节点排列，右侧为人物档案栏">
+        </a>
+        <figcaption>阵营全图 · 人物卡片节点 · 右侧人物档案栏</figcaption>
+      </figure>
+
+      <ul class="figures">
+        <li><b>56</b><span>人物</span></li>
+        <li><b>102</b><span>关系</span></li>
+        <li><b>6</b><span>势力</span></li>
+      </ul>
+
+      <ul class="features">
+        <li><b>右侧常驻人物档案</b>：身份、简介、剧情补充、关系索引</li>
+        <li>阵营与关系类型<b>下拉筛选</b>，可切换「只看此人的关系」</li>
+        <li>连线<b>箭头标方向</b>，图例分友好、家族、敌对、效忠、感情五类</li>
+        <li><b>显示剧透</b>开关，关键亲缘与结局默认收起</li>
+        <li>人物头像联网加载，取不到时退回纹章占位</li>
+        <li>每个人物附独立资料来源页链接，便于对照原文</li>
+        <li>移动端人物目录 + 全屏图谱</li>
+      </ul>
+
+      <ul class="thumbs">
+        <li><a href="assets/gpt2.png" target="_blank" rel="noopener"><img src="assets/gpt2.png" width="430" height="679" loading="lazy" decoding="async" alt="GPT6 SOL 版界面细节截图（点击看大图）"></a></li>
+      </ul>
+
+      <a class="cta" href="天国拯救2-人物关系图-GPT6.html">打开 GPT6 SOL 版</a>
+    </article>
+  </main>
+
+  <section class="compare" aria-labelledby="compare-title">
+    <div class="section-head">
+      <h2 id="compare-title">两版对照</h2>
+      <p>同一批资料，两种看法；按你想要的读法挑一版</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <caption>收录规模与交互方式对照</caption>
+        <thead>
+          <tr>
+            <th scope="col">对照项</th>
+            <th scope="col">DeepSeek V4.1</th>
+            <th scope="col">GPT6 SOL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">收录规模</th><td>72 位人物 · 222 条关系</td><td>56 位人物 · 102 条关系</td></tr>
+          <tr><th scope="row">阵营划分</th><td>8 个阵营</td><td>6 方势力（按交往圈排列）</td></tr>
+          <tr><th scope="row">人物分级</th><td>核心 11 / 主要 19 / 次要 42</td><td>标注核心人物</td></tr>
+          <tr><th scope="row">布局</th><td>阵营 · 环形 · 自由</td><td>阵营一种</td></tr>
+          <tr><th scope="row">关系分类</th><td>12 类，可逐类显示或隐藏</td><td>5 类图例 + 类型下拉筛选</td></tr>
+          <tr><th scope="row">连线</th><td>可选显示关系文字</td><td>箭头标方向，可选连线文字</td></tr>
+          <tr><th scope="row">人物档案</th><td>弹窗：简介、关系列表、关系广度</td><td>右栏卡片：简介、剧情补充、关系索引、来源</td></tr>
+          <tr><th scope="row">关系链</th><td>支持最短路径高亮</td><td>按关系索引逐条跳转</td></tr>
+          <tr><th scope="row">剧透控制</th><td>剧透遮蔽开关</td><td>显示剧透开关</td></tr>
+          <tr><th scope="row">配色</th><td>夜幕（金）/ 羊皮纸（日间）</td><td>单套暗色</td></tr>
+          <tr><th scope="row">头像</th><td>内联立绘，离线可用</td><td>联网加载 Wiki 头像，失败退回纹章</td></tr>
+          <tr><th scope="row">导出</th><td>导出 PNG</td><td>—</td></tr>
+          <tr><th scope="row">快捷键</th><td><kbd>/</kbd> 搜索 · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> 布局 · <kbd>F</kbd> 适应 · <kbd>H</kbd> 精简 · <kbd>L</kbd> 连线文字 · <kbd>S</kbd> 剧透 · <kbd>T</kbd> 主题</td><td>方向键平移 · 缩放按钮</td></tr>
+          <tr><th scope="row">文件体积</th><td>约 1.8 MB（含内联素材）</td><td>约 79 KB</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="notes" aria-label="阅读提示">
+    <div class="note">
+      <h3>先看清剧透</h3>
+      <p>两版都默认收起关键剧情：亲缘真相、背叛与结局需要手动开启「剧透」才会显示，怕剧透就先别开。</p>
+    </div>
+    <div class="note">
+      <h3>要不要联网</h3>
+      <p>DeepSeek 版把素材内联在文件里，断网也能看；GPT6 版的人物头像来自公开 Wiki，需要联网，取不到时会显示纹章占位。</p>
+    </div>
+    <div class="note">
+      <h3>第一次打开</h3>
+      <p>DeepSeek 版约 1.8 MB，首次加载要等一会儿；之后浏览器会缓存。手机上建议横屏看图谱，点人物再切竖向读档案。</p>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <p>人物与关系资料整理自公开维基与百科，中文译名以游戏官方简体中文为准，并列常用别译。两版图谱均由 AI 生成后经人工修正，难免仍有错漏，欢迎在 <a href="https://github.com/DoYourThink/TianGuoZhengJiu2-RenWu" target="_blank" rel="noopener noreferrer">GitHub 仓库</a>反馈。</p>
+    <p>《天国：拯救 2》版权归 Warhorse Studios / Deep Silver 所有；本页为非商业性同人整理，非官方资料页。</p>
+  </footer>
+
+</div>
+</body>
+</html>
